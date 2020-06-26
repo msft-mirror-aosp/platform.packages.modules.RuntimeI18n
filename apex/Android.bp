@@ -88,14 +88,10 @@ module_exports {
                 "core-icu4j",
             ],
         },
-        host: {
-            native_shared_libs: [
-                "libicu_jni",
-            ],
-        },
     },
     native_shared_libs: [
         "libicui18n",
         "libicuuc",
+        "libicu_jni",
     ],
 }
