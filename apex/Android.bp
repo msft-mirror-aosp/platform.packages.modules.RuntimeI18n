@@ -54,3 +54,44 @@ android_app_certificate {
     name: "com.android.i18n.certificate",
     certificate: "com.android.i18n",
 }
+
+// SDK exposed by the ICU module.
+sdk {
+    name: "i18n-module-sdk",
+    host_supported: true,
+    target: {
+        android: {
+            java_sdk_libs: [
+                "i18n.module.intra.core.api",
+                "legacy.i18n.module.platform.api",
+                "stable.i18n.module.platform.api",
+                "i18n.module.public.api",
+            ],
+        },
+    },
+    native_header_libs: [
+        "libandroidicu_headers",
+        "libicuuc_headers",
+    ],
+    native_shared_libs: [
+        "libandroidicu",
+    ],
+}
+
+// Additional prebuilts for running ART tests on host and device.
+module_exports {
+    name: "i18n-module-test-exports",
+    host_supported: true,
+    target: {
+        android: {
+            java_libs: [
+                "core-icu4j",
+            ],
+        },
+    },
+    native_shared_libs: [
+        "libicui18n",
+        "libicuuc",
+        "libicu_jni",
+    ],
+}
