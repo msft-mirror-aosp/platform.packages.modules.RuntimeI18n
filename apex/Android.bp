@@ -78,6 +78,7 @@ sdk {
     ],
     native_shared_libs: [
         "libandroidicu",
+        "libicu",
     ],
 }
 
@@ -93,6 +94,7 @@ module_exports {
         },
     },
     native_shared_libs: [
+        "libicu",
         "libicui18n",
         "libicuuc",
         "libicu_jni",
