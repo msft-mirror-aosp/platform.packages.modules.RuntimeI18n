@@ -94,7 +94,6 @@ module_exports {
         },
     },
     native_shared_libs: [
-        "libicu",
         "libicui18n",
         "libicuuc",
         "libicu_jni",
