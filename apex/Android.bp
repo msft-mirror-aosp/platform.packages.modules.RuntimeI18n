@@ -33,8 +33,11 @@ apex_defaults {
     key: "com.android.i18n.key",
     native_shared_libs: [
         "libandroidicu",
+        "libicu",
         "libicui18n",
         "libicuuc",
+        // libicu_jni is not in jni_libs, but native_shared_libs because it's required to bootstrap
+        // the Java method System.loadLibrary.
         "libicu_jni",
         // TODO(b/122876336): Remove libpac.so once it's migrated to Webview.
         "libpac",
@@ -75,6 +78,7 @@ sdk {
     ],
     native_shared_libs: [
         "libandroidicu",
+        "libicu",
     ],
 }
 
