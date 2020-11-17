@@ -80,6 +80,15 @@ sdk {
     ],
 }
 
+module_exports {
+    name: "i18n-module-host-exports",
+    host_supported: true,
+    device_supported: false,
+    java_libs: [
+        "timezone-host",
+    ],
+}
+
 // Additional prebuilts for running ART tests on host and device.
 module_exports {
     name: "i18n-module-test-exports",
