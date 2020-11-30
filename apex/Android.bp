@@ -78,6 +78,16 @@ sdk {
     ],
     native_shared_libs: [
         "libandroidicu",
+        "libicu",
+    ],
+}
+
+module_exports {
+    name: "i18n-module-host-exports",
+    host_supported: true,
+    device_supported: false,
+    java_libs: [
+        "timezone-host",
     ],
 }
 
