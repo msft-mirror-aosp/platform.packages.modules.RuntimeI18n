@@ -43,6 +43,7 @@ apex_defaults {
     java_libs: [
         "core-icu4j",
     ],
+    updatable: false,
 }
 
 apex_key {
