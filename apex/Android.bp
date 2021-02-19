@@ -19,6 +19,10 @@
 // TODO(b/138434658): Move the apex declaration back to external/icu
 // The apex is declared in libcore/ to workaround new dependency from external/icu
 // to system/sepolicy in a downstream branch.
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
 apex {
     name: "com.android.i18n",
     defaults: ["com.android.i18n-defaults"],
