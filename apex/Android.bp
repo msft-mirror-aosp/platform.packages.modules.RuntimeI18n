@@ -44,8 +44,8 @@ apex_defaults {
         // the Java method System.loadLibrary.
         "libicu_jni",
     ],
-    java_libs: [
-        "core-icu4j",
+    bootclasspath_fragments: [
+        "i18n-bootclasspath-fragment",
     ],
     updatable: false,
 }
@@ -59,6 +59,17 @@ apex_key {
 android_app_certificate {
     name: "com.android.i18n.certificate",
     certificate: "com.android.i18n",
+}
+
+// The com.android.i18n's contribution to the bootclasspath.
+bootclasspath_fragment {
+    name: "i18n-bootclasspath-fragment",
+    contents: [
+        "core-icu4j",
+    ],
+    apex_available: [
+        "com.android.i18n",
+    ],
 }
 
 // SDK exposed by the ICU module.
