@@ -72,6 +72,11 @@ bootclasspath_fragment {
     apex_available: [
         "com.android.i18n",
     ],
+    hidden_api: {
+        max_target_o_low_priority: [
+            "hiddenapi/hiddenapi-max-target-o-low-priority.txt",
+        ],
+    },
 }
 
 // SDK exposed by the ICU module.
