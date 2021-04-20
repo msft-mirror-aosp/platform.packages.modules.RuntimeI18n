@@ -112,7 +112,9 @@ module_exports {
     target: {
         android: {
             java_libs: [
+                // For use by robolectric and ART tests.
                 "core-icu4j",
+                "core-icu4j-for-host",
             ],
         },
     },
