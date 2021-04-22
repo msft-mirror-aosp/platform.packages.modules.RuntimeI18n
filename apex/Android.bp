@@ -83,6 +83,9 @@ sdk {
     host_supported: true,
     target: {
         android: {
+            java_boot_libs: [
+                "core-icu4j",
+            ],
             java_sdk_libs: [
                 "i18n.module.intra.core.api",
                 "legacy.i18n.module.platform.api",
@@ -118,7 +121,6 @@ module_exports {
         android: {
             java_libs: [
                 // For use by robolectric and ART tests.
-                "core-icu4j",
                 "core-icu4j-for-host",
             ],
         },
