@@ -72,6 +72,11 @@ bootclasspath_fragment {
     apex_available: [
         "com.android.i18n",
     ],
+    hidden_api: {
+        max_target_o_low_priority: [
+            "hiddenapi/hiddenapi-max-target-o-low-priority.txt",
+        ],
+    },
 }
 
 // SDK exposed by the ICU module.
@@ -80,6 +85,9 @@ sdk {
     host_supported: true,
     target: {
         android: {
+            java_boot_libs: [
+                "core-icu4j",
+            ],
             java_sdk_libs: [
                 "i18n.module.intra.core.api",
                 "legacy.i18n.module.platform.api",
@@ -114,7 +122,8 @@ module_exports {
     target: {
         android: {
             java_libs: [
-                "core-icu4j",
+                // For use by robolectric and ART tests.
+                "core-icu4j-for-host",
             ],
         },
     },
