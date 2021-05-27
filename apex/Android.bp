@@ -70,6 +70,23 @@ bootclasspath_fragment {
     apex_available: [
         "com.android.i18n",
     ],
+    // The bootclasspath_fragments that provide APIs on which this depends.
+    fragments: [
+        {
+            apex: "com.android.art",
+            module: "art-bootclasspath-fragment",
+        },
+    ],
+    api: {
+        stub_libs: [
+            "i18n.module.public.api",
+        ],
+    },
+    core_platform_api: {
+        stub_libs: [
+            "legacy.i18n.module.platform.api",
+        ],
+    },
     hidden_api: {
         max_target_o_low_priority: [
             "hiddenapi/hiddenapi-max-target-o-low-priority.txt",
@@ -83,9 +100,7 @@ sdk {
     host_supported: true,
     target: {
         android: {
-            java_boot_libs: [
-                "core-icu4j",
-            ],
+            bootclasspath_fragments: ["i18n-bootclasspath-fragment"],
             java_sdk_libs: [
                 "i18n.module.intra.core.api",
                 "legacy.i18n.module.platform.api",
