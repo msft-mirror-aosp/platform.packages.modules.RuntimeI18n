@@ -50,6 +50,7 @@ apex_defaults {
         "i18n-bootclasspath-fragment",
     ],
     updatable: false,
+    generate_hashtree: false,
 }
 
 apex_key {
@@ -66,6 +67,8 @@ android_app_certificate {
 // The com.android.i18n's contribution to the bootclasspath.
 bootclasspath_fragment {
     name: "i18n-bootclasspath-fragment",
+    // b/191127295: keep i18n in platform's classpath config and boot image.
+    generate_classpaths_proto: false,
     contents: [
         "core-icu4j",
     ],
