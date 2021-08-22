@@ -50,6 +50,7 @@ apex_defaults {
         "i18n-bootclasspath-fragment",
     ],
     updatable: false,
+    generate_hashtree: false,
 }
 
 apex_key {
@@ -66,12 +67,31 @@ android_app_certificate {
 // The com.android.i18n's contribution to the bootclasspath.
 bootclasspath_fragment {
     name: "i18n-bootclasspath-fragment",
+    // b/191127295: keep i18n in platform's classpath config and boot image.
+    generate_classpaths_proto: false,
     contents: [
         "core-icu4j",
     ],
     apex_available: [
         "com.android.i18n",
     ],
+    // The bootclasspath_fragments that provide APIs on which this depends.
+    fragments: [
+        {
+            apex: "com.android.art",
+            module: "art-bootclasspath-fragment",
+        },
+    ],
+    api: {
+        stub_libs: [
+            "i18n.module.public.api",
+        ],
+    },
+    core_platform_api: {
+        stub_libs: [
+            "legacy.i18n.module.platform.api",
+        ],
+    },
     hidden_api: {
         max_target_o_low_priority: [
             "hiddenapi/hiddenapi-max-target-o-low-priority.txt",
@@ -85,9 +105,7 @@ sdk {
     host_supported: true,
     target: {
         android: {
-            java_boot_libs: [
-                "core-icu4j",
-            ],
+            bootclasspath_fragments: ["i18n-bootclasspath-fragment"],
             java_sdk_libs: [
                 "i18n.module.intra.core.api",
                 "legacy.i18n.module.platform.api",
