@@ -43,8 +43,6 @@ apex_defaults {
         // libicu_jni is not in jni_libs, but native_shared_libs because it's required to bootstrap
         // the Java method System.loadLibrary.
         "libicu_jni",
-        // TODO(b/122876336): Remove libpac.so once it's migrated to Webview.
-        "libpac",
     ],
     bootclasspath_fragments: [
         "i18n-bootclasspath-fragment",
