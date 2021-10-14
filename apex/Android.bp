@@ -43,14 +43,13 @@ apex_defaults {
         // libicu_jni is not in jni_libs, but native_shared_libs because it's required to bootstrap
         // the Java method System.loadLibrary.
         "libicu_jni",
-        // TODO(b/122876336): Remove libpac.so once it's migrated to Webview.
-        "libpac",
     ],
     bootclasspath_fragments: [
         "i18n-bootclasspath-fragment",
     ],
     updatable: false,
-    generate_hashtree: false,
+    // Need hash tree so that CompOS can use dm-verity to verify the image in the Protected VM.
+    generate_hashtree: true,
 }
 
 apex_key {
