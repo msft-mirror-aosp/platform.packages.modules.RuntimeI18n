@@ -48,8 +48,7 @@ apex_defaults {
         "i18n-bootclasspath-fragment",
     ],
     updatable: false,
-    // Need hash tree so that CompOS can use dm-verity to verify the image in the Protected VM.
-    generate_hashtree: true,
+    generate_hashtree: false,
 }
 
 apex_key {
