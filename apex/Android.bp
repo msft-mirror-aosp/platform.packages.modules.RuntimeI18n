@@ -113,12 +113,7 @@ sdk {
             ],
         },
     },
-    native_header_libs: [
-        "libandroidicu_headers",
-        "libicuuc_headers",
-    ],
     native_shared_libs: [
-        "libandroidicu",
         "libicu",
     ],
 }
