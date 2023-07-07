@@ -133,7 +133,8 @@ sdk {
         },
     },
     native_shared_libs: [
-        "libicu",
+        "libandroidicu",
+	"libicu",
     ],
 }
 
