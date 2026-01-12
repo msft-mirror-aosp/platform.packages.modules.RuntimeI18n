@@ -16,9 +16,8 @@
 // i18n APEX is intended as a home for ICU as of July 2019.
 // Various parts and dependencies of ICU would be gradually moved into this APEX,
 // and the below build rules should reflect the latest status.
-// TODO(b/138434658): Move the apex declaration back to external/icu
-// The apex is declared in libcore/ to workaround new dependency from external/icu
-// to system/sepolicy in a downstream branch.
+// This APEX is defined here instead of in external/icu to avoid a build
+// dependency issue. See b/138434658 for context.
 package {
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
